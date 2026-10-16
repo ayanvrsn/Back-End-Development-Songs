@@ -1,0 +1,17 @@
+LOCAL VERIFICATION — MONGODB_MOCK=1; not evidence of cloud MongoDB deployment
+$ curl -i --fail-with-body -X PUT -H Content-Type: application/json -d {"id": 1, "title": "Updated Capstone Song", "lyrics": "Updated through a real HTTP PUT request."} http://127.0.0.1:5001/song/1
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Fri, 16 Oct 2026 11:50:52 GMT
+Content-Type: application/json
+Content-Length: 93
+Connection: close
+
+{"id":1,"lyrics":"Updated through a real HTTP PUT request.","title":"Updated Capstone Song"}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   190  100    93  100    97  63829  66575 --:--:-- --:--:-- --:--:--  185k
+
+Exit code: 0

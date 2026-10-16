@@ -1,0 +1,11 @@
+$ /Users/ayan/Documents/Codex/2026-10-04/d/backend-capstone/.venv/bin/python -m pytest -v
+============================= test session starts ==============================
+collecting ... collected 3 items
+
+tests/test_api.py::test_health PASSED
+tests/test_crud.py::test_read_and_validation PASSED
+tests/test_crud.py::test_song_lifecycle PASSED
+
+============================== 3 passed in 1.01s ===============================
+
+Exit code: 0

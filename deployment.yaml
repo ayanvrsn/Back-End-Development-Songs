@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: songs
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: songs}
+  template:
+    metadata:
+      labels: {app: songs}
+    spec:
+      containers:
+      - name: songs
+        image: REPLACE_WITH_REGISTRY/songs:v1
+        ports: [{containerPort: 8080}]
+        env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef: {name: songs-database, key: uri}
+        readinessProbe:
+          httpGet: {path: /health, port: 8080}
+          initialDelaySeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: songs
+spec:
+  selector: {app: songs}
+  ports: [{port: 8080, targetPort: 8080}]
